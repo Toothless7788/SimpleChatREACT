@@ -20,14 +20,17 @@ io.on("connection", (socket) => {
 
     socket.on("sendMessage", (data) => {
         console.log(`data in server: ${data["value"]}`)    // data["message"] is the same as data.message
-        // Broadcast message to other users
-        // broadcast sent message to every user except the sender user
-        /*
-          socket.emit() emits the message to the message initiator but not socket.broadcast.emit() and they both send messages to the rest of the clients
-        */
-    //    socket.broadcast.emit("receiveMessage", data);
-       socket.emit("receiveMessage", data);
 
+        /*
+          Summary: 
+          1. socket.broadcase.emit(): Send the data to all clients except the initiator, i.e. sender
+          2. socket.emit(): Send the data to the initiator, i.e. sender
+          3. io.emit(): Send the data to all clients
+        */
+        // socket.broadcast.emit("receiveMessage", data);    // Send to all clients except sender
+        // socket.emit("receiveMessage", data);    // Send to sender only
+        io.emit("receiveMessage", data);    // Send to all clients
+        
     })
 });
 
