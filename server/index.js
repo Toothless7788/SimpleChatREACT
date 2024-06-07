@@ -19,7 +19,7 @@ io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
 
     socket.on("sendMessage", (data) => {
-        console.log(`data in server: ${data.message.value}`)
+        console.log(`data in server: ${data["message"]}`)    // data["message"] is the same as data.message
     })
 });
 
