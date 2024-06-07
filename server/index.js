@@ -14,3 +14,8 @@ const io = new Server(server, {
         methods: ["GET", "POST"]
     }
 });
+
+
+server.listen(3001, () => {    // We use port 3001 for server because the client uses port 3000
+    console.log(`Server is running`);
+})
