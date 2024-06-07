@@ -19,7 +19,15 @@ io.on("connection", (socket) => {
     console.log(`User connected: ${socket.id}`);
 
     socket.on("sendMessage", (data) => {
-        console.log(`data in server: ${data["message"]}`)    // data["message"] is the same as data.message
+        console.log(`data in server: ${data["value"]}`)    // data["message"] is the same as data.message
+        // Broadcast message to other users
+        // broadcast sent message to every user except the sender user
+        /*
+          socket.emit() emits the message to the message initiator but not socket.broadcast.emit() and they both send messages to the rest of the clients
+        */
+    //    socket.broadcast.emit("receiveMessage", data);
+       socket.emit("receiveMessage", data);
+
     })
 });
 
