@@ -49,20 +49,21 @@ export default function App() {
           <input className="border-green-700" placeholder="Type your message" onChange={(event) => {
             setMessage(event.target.value);
           }}/>
-          <button className="bg-blue-800 hover:bg-blue-300 rounded-xl" onClick={sendMessage}>Send Message</button>
+          <button className="bg-blue-800 hover:bg-blue-300 rounded-xl border-black border-2 text-blue-200 hover:text-slate-900" onClick={sendMessage}>Send Message</button>
           <h1>Your message: {displayText}</h1>
         </div>
       </div>
-      <div className="flex items-center justify-center mt-5">
+      <div className="flex items-center justify-center mt-16">
         <div className="border-black border-2">
           <input className="border-green-700" placeholder="Type your room ID" onChange={(event) => {
             setRoom(event.target.value);
           }}/>
-          <button className="bg-blue-800 hover:bg-blue-300 rounded-xl" onClick={joinRoom}>Join Room</button>
+          <button className="bg-blue-800 hover:bg-blue-300 rounded-xl border-black border-2 text-blue-200 hover:text-slate-900" onClick={joinRoom}>Join Room</button>
+          <br />
           <input className="border-green-700" placeholder="Type your room message" onChange={(event) => {
             setRoomMessage(event.target.value);
           }}/>
-          <button className="bg-blue-800 hover:bg-blue-300 rounded-xl" onClick={sendRoomMessage}>Send Room Message</button>
+          <button className="bg-blue-800 hover:bg-blue-300 rounded-xl border-black border-2 text-blue-200 hover:text-slate-900" onClick={sendRoomMessage}>Send Room Message</button>
           <h1>Your room message: {roomDisplayText}</h1>
         </div>
       </div>
